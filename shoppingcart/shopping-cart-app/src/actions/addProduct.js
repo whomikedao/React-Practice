@@ -14,4 +14,4 @@ let addProduct = (item) => {
 //STEP 7: then you need a reducer for addProduct
 //this will take it to the global state and update it
 
-export defaults addProduct;
+export default addProduct

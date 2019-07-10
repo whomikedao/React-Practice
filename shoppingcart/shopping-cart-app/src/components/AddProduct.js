@@ -11,8 +11,8 @@ class AddProduct extends React.Component {
             productName: '',
             productPrice: 0,
             product: [{
-                productName: 'Shoes',
-                productPrice:12
+                productName: '',
+                productPrice: 0
             }]
         }
     }
@@ -34,22 +34,22 @@ class AddProduct extends React.Component {
 //STEP 5: CREATE SUBMIT HANDLER
 //THIS WILL CALL THE GLOBAL STATE
 //(empty for now, go on to next steps in action folder)
-submitProductHandler = (e) => {
-    e.preventDefault();
+    submitProductHandler = (e) => {
+        e.preventDefault();
 
-    //STEP 15: ADD THE PROPS I SUPPOSE?
-    this.props.onAddProduct({
-        productName: this.state.productName,
-        productPrice: this.state.productPrice
-    })
+        //STEP 15: ADD THE PROPS I SUPPOSE?
+        this.props.onAddProduct({
+            productName: this.state.productName,
+            productPrice: this.state.productPrice
+        })
 }
     
 //STEP 1: CREATE THE SPACE
     render(){
-        console.log(this.productName);
+        console.log(this.props.productCart);
         return(
             <div>
-                <form onSubmit={submitProductHandler}>
+                <form onSubmit={this.submitProductHandler}>
                     <label>Product Name</label>
                     <input type ="text"
                         placeholder="Product Name"

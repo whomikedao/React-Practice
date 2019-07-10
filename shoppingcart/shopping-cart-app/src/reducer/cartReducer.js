@@ -6,7 +6,7 @@ let cartReducer = (state, action) =>{
             totalCost: 0,
             productCart: [
                 {
-                    productName: 'Free Shoes',
+                    productName: '',
                     productPrice: 0
                 }
             ]
