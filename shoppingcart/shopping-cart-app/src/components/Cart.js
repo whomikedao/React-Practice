@@ -6,29 +6,30 @@ import deleteProduct from '../actions/deleteProduct';
 //STEP 17: made a delete function in the actions folder
 //STEP 20a: ADD DELETE FUNCTION TO ONCLICK
 //STEP 21: npm install react-router-dom
+//STEP 22 ADDED BASELAYOUT 
 class Cart extends Component {
   render() {
     return (
       <div>
         <table>
-          <thread>
+          <thead>
             <tr>
               <th>Product Name</th>
               <th>Product Price</th>
               <th>#</th>
             </tr>
-          </thread>
+          </thead>
           <tbody>
             {
               this.props.productCart.map((productObj)=>{
                 return <tr key={productObj.productName}>
                   <td>{productObj.productName}</td>
                   <td>{productObj.productPrice}</td>
-                  <td onClick={this.props.onDeleteProduct({
+                  <td onClick={()=>{this.props.onDeleteProduct({
                     productName: productObj.productName, 
                     productPrice: productObj.productPrice
                   })
-                    }>Remove</td>
+                    }}>Remove</td>
                   
                 </tr>
               })
@@ -51,14 +52,15 @@ class Cart extends Component {
 let mapStateToProps = (state) => {
   return {
     //takes a component and provides the updated component
-    onDeleteProduct: (productData) => dispatch(deleteProduct(productData))
+    totalCost: state.totalCost,
+    productCart: state.productCart
   }
 }
 
 
 let mapDispatchToProps = (dispatch) => {
-  return{
-      onAddProduct: (productData) => dispatch(addProduct(productData))
+  return {
+      onDeleteProduct: (productData) => dispatch(deleteProduct(productData))
   }
 }
 const connectComponent = connect(

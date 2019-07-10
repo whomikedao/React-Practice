@@ -63,7 +63,7 @@ class AddProduct extends React.Component {
                     <button>Submit</button>
 
                 </form>
-
+                <h1>Total: ${this.props.totalCost}</h1>
                 <ul>
                     {this.props.productCart.map((product)=>{
                         return <li>{product.productName}: ${product.productPrice}</li>
