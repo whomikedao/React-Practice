@@ -5,6 +5,7 @@ import deleteProduct from '../actions/deleteProduct';
 //STEP 16: MAKE A CART TO DISPLAY AND ALSO TO BE ABLE TO DELETE
 //STEP 17: made a delete function in the actions folder
 //STEP 20a: ADD DELETE FUNCTION TO ONCLICK
+//STEP 21: npm install react-router-dom
 class Cart extends Component {
   render() {
     return (
@@ -60,3 +61,9 @@ let mapDispatchToProps = (dispatch) => {
       onAddProduct: (productData) => dispatch(addProduct(productData))
   }
 }
+const connectComponent = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Cart)
+
+export default connectComponent

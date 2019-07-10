@@ -7,6 +7,8 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from './reducer/cartReducer';
 import AddProduct from './components/AddProduct';
+import Cart from './components/Cart';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 //STEP 10 IMPORT REDUCER AND CREATE THE STORE THROUGH THE REDUCER
 const store = createStore(reducer)
@@ -14,7 +16,12 @@ const store = createStore(reducer)
 
 ReactDOM.render(
     <Provider store={store}>
-    <AddProduct />
+        <BrowserRouter>
+            <Switch>
+                <Route path="/" component={AddProduct} />
+                <Route path="/cart/" compnent={Cart} />
+            </Switch>
+        </BrowserRouter>
     </Provider>, document.getElementById('root')
 
 );
