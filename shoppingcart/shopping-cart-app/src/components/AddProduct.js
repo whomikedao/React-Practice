@@ -46,7 +46,7 @@ class AddProduct extends React.Component {
     
 //STEP 1: CREATE THE SPACE
     render(){
-        console.log(this.props.productCart);
+        // console.log(this.props.productCart);
         return(
             <div>
                 <form onSubmit={this.submitProductHandler}>
@@ -63,6 +63,12 @@ class AddProduct extends React.Component {
                     <button>Submit</button>
 
                 </form>
+
+                <ul>
+                    {this.props.productCart.map((product)=>{
+                        return <li>{product.productName}: ${product.productPrice}</li>
+                    })}
+                </ul>
             </div>
             
         );
