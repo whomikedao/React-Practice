@@ -12,7 +12,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import BaseLayout from './layout/BaseLayout';
 
 //STEP 10 IMPORT REDUCER AND CREATE THE STORE THROUGH THE REDUCER
-const store = createStore(reducer)
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ &&window.__REDUX_DEVTOOLS_EXTENSION__());
 
 
 ReactDOM.render(
@@ -25,7 +25,6 @@ ReactDOM.render(
                 </Switch>
             </BaseLayout>    
         </BrowserRouter>
-        
     </Provider>, document.getElementById('root')
 
 );
